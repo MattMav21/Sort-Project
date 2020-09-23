@@ -6,6 +6,24 @@ function swap(array, idx1, idx2) {
 
 // Use this pseudocode to implement the bubble sort
 function bubbleSort(array) {
+  let n = array.length; 
+  let swapped = true; 
+
+  while (swapped) {
+    swapped = false; 
+    for (let i =1; i < n; i++) {
+      let element = array[i];
+      if (array[i-1] > element) {
+        array[i] = array[i-1]; 
+        array[i-1] = element; 
+        //swap(array, element, array[i-1]); 
+        swapped = true;
+        console.log(`this is round ${i}`, array)
+        break;  
+      } 
+    }
+  }
+
   // n := length(array)
   // repeat
   //  swapped = false
