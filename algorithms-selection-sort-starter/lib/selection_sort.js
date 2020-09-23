@@ -1,9 +1,24 @@
 // Try to implement swap on your own, this time.
 function swap(arr, index1, index2) {
-
+  let temp = arr[index1]
+  arr[index1] = arr[index2]
+  arr[index2] = temp;
 }
 
 function selectionSort(list) {
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    let min = i;
+    for (let j = i + 1; j < n; j++) {
+      if (list[j] < list[min]) {
+        min = j;
+      }
+    }
+    if (min !== i) {
+      swap(list, i, min);
+    }
+  }
+
   // list  : array of items
   // n     : size of list
   //
@@ -26,6 +41,9 @@ function selectionSort(list) {
   //    end if
   // end for
 }
+
+// let array = [6, 2, 1, 5]
+// selectionSort(array);
 
 module.exports = {
   selectionSort,
